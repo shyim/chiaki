@@ -42,7 +42,7 @@ class Settings : public QObject
 	Q_OBJECT
 
 	private:
-		QSettings settings(QString("configs/config.ini"), QSettings::IniFormat);
+		QSettings settings = new QSettings("config.ini",QSettings::IniFormat);
 
 		QMap<HostMAC, RegisteredHost> registered_hosts;
 		QMap<int, ManualHost> manual_hosts;
