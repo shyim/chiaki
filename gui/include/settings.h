@@ -7,6 +7,7 @@
 
 #include "host.h"
 
+#include <QString>
 #include <QSettings>
 #include <QAudioDeviceInfo>
 
@@ -41,7 +42,7 @@ class Settings : public QObject
 	Q_OBJECT
 
 	private:
-		QSettings settings;
+		QSettings settings(QString("configs/config.ini"), QSettings::IniFormat);
 
 		QMap<HostMAC, RegisteredHost> registered_hosts;
 		QMap<int, ManualHost> manual_hosts;
